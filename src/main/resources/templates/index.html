@@ -1,18 +1,22 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Главная страница</title>
+    <title> Главная страница</title>
+    <style>
+        h1 {
+            text-align: center;
+        }
+
+        button {
+            margin-left: 10px;
+        }
+    </style>
 </head>
 <body>
-<h1>Главная страница</h1>
-<p>Вы вошли в систему как <b>${#authentication.name}</b>.</p>
+<h1>Сайт по продаже слонов, покупайте наших слонов!</h1>
+
 <p>
-    <a href="/user">Моя страница</a>
-</p>
-<p>
-<form action="/logout" method="post">
-    <input type="submit" value="Выйти" />
-</form>
+    <a href="/user"><button type="button">Перейти к профилю</button></a>
 </p>
 </body>
 </html>
