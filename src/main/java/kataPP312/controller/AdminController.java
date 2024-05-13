@@ -6,6 +6,7 @@ import kataPP312.service.RoleService;
 import kataPP312.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
@@ -42,18 +43,17 @@ public class AdminController {
         return "redirect:/admin";
     }
 
-    @GetMapping("/edit")
-    public String edit(@RequestParam(value = "id", required = false) Long id, ModelMap modelMap) {
-        modelMap.addAttribute("user", userService.getById(id));
-        modelMap.addAttribute("role", roleService.getAllUser());
-
+    @GetMapping("/edit/{id}")
+    public String editUser(@PathVariable("id") Long id, Model model) {
+        User userById = userService.getById(id);
+        model.addAttribute("user", userById);
+        model.addAttribute("roles", roleService.getAllUser());
         return "edit";
     }
 
-    @PostMapping("/edit")
-    public String update(@ModelAttribute(value = "user") User user) {
+    @PutMapping("/edit/{id}")
+    public String updateUser(@ModelAttribute("user") User user) {
         userService.update(user);
-
         return "redirect:/admin";
     }
 

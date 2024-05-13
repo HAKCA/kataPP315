@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
-  <title>Create User</title>
+  <title>Edit User</title>
   <style>
     body {
       font-family: sans-serif;
@@ -39,9 +39,10 @@
   </style>
 </head>
 <body>
-<h1>Create User</h1>
+<h1>Edit User</h1>
 
-<form th:action="@{/admin/create}" th:object="${user}" th:method="post">
+<form th:action="@{/admin/edit/{id}}" th:object="${user}" th:method="put">
+  <input type="hidden" th:field="*{id}">
 
   <label for="username">Username:</label>
   <input type="text" th:field="*{username}" id="username">
@@ -54,15 +55,16 @@
 
   <label>Select role:
     <input type="checkbox" name="roles"
-           th:each="roles : ${role}"
+           th:each="roles : ${roles}"
            th:value="${roles.getId()}"
            th:text="${roles.getName().replace('ROLE_', '') + ' '}"
            th:field="*{roles}"
     />
   </label>
 
-  <button type="submit">Create</button>
+  <button type="submit">Update</button>
 </form>
-<a href="/admin"><button type="submit">Отмена</button></a>
+  <a href="/admin"><button type="submit">Отмена</button></a>
 </body>
 </html>
+
