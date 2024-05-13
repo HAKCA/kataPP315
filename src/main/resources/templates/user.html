@@ -1,11 +1,46 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<html>
 <head>
-    <title>Spring Security Example</title>
+    <title>Моя страница</title>
+    <style>
+        h1 {
+            text-align: center;
+        }
+
+        table {
+            margin: 0 auto;
+            width: 50%;
+            text-align: center;
+        }
+
+        td {
+            padding: 10px;
+        }
+
+        button {
+            margin-left: 10px;
+        }
+    </style>
 </head>
 <body>
-<h1>User, welcome spring boot security page!</h1>
+<h1>Моя страница</h1>
 
+<table>
+    <tr>
+        <th>Имя пользователя</th>
+        <th>Роль</th>
+        <th>Email</th>
+    </tr>
+    <tr>
+        <td><span th:text="${#authentication.name}"></span></td>
+        <td><span th:text="${#authentication.authorities}"></span></td>
+        <td><span th:text="${user.getEmail()}"></span></td>
+    </tr>
+</table>
 
+<p>
+    <a href="/index">Главная страница</a>
+    <a href="/logout"><button type="button">Выход</button></a>
+</p>
 </body>
 </html>
