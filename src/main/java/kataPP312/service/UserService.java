@@ -18,8 +18,6 @@ public interface UserService extends UserDetailsService {
 
     void update(User user);
 
-    User findByEmail(String email);
-
     @Override
     UserDetails loadUserByUsername(String s) throws UsernameNotFoundException;
 }
