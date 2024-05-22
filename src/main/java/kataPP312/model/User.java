@@ -76,6 +76,22 @@ public class User implements UserDetails {
         return false;
     }
 
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public Integer getAge() {
+        return age;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
     public Collection<Role> getRoles() {
         return roles;
     }
@@ -108,10 +124,6 @@ public class User implements UserDetails {
         this.password = password;
     }
 
-    public String getEmail() {
-        return email;
-    }
-
     public void setEmail(String email) {
         this.email = email;
     }
@@ -126,17 +138,5 @@ public class User implements UserDetails {
 
     public void setAge(Integer age) {
         this.age = age;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public Integer getAge() {
-        return age;
     }
 }
