@@ -138,12 +138,13 @@ $(() => {
             success: createdUser => {
                 $('#registForm div.validation').text('')
                 $('#registForm').find('input').not(':submit').val('')
-                buildTable(createdUser)
                 $('#new-user-tab').removeClass('active');
                 $('#users-tab').addClass('active');
 
                 $('#new-user').removeClass('show active');
                 $('#users').addClass('show active');
+                window.location.reload();
+                buildTable(createdUser)
             },
             error: jqXHR => {
                 let divValid = $('#registForm div.validation')
@@ -156,7 +157,6 @@ $(() => {
                 }
             }
         })
-               window.location.reload();
     })
     let refactorTable = (user, action) => {
         if (action === 'del') {

@@ -23,8 +23,11 @@ public class AdminController {
 
     @GetMapping
     public String usersPage(Model model, Principal principal){
-        User user = userService.findUserByUsername(principal.getName());
-        model.addAttribute("user", user);
+        if(principal != null) {
+            User user = userService.findUserByUsername(principal.getName());
+            model.addAttribute("user", user);
+        }
+
         return "adminpanel";
     }
 
