@@ -32,6 +32,11 @@ public class LoginController {
         return "login";
     }
 
+    @GetMapping(value = "/logintest")
+    public String showTestPage() {
+        return "logintest";
+    }
+
     @GetMapping("/registration")
     public String create(ModelMap modelMap) {
         modelMap.addAttribute("user", new User());

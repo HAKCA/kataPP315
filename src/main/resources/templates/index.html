@@ -61,7 +61,7 @@
     <span th:text="${#authentication.name}"></span> <span class="fas fa-caret-down"></span>
     <div class="user-menu-dropdown">
         <a href="/admin">Админ панель</a>
-        <a href="/user">Мой профиль</a>
+        <a href="/userInfo">Мой профиль</a>
         <a href="/logout">Выход</a>
     </div>
 </div>
@@ -69,7 +69,7 @@
      th:if="${#authorization.expression('hasRole(''ROLE_USER'')')}" class="user-menu">
     <span th:text="${#authentication.name}"></span> <span class="fas fa-caret-down"></span>
     <div class="user-menu-dropdown">
-        <a href="/user">Мой профиль</a>
+        <a href="/userInfo">Мой профиль</a>
         <a href="/logout">Выход</a>
     </div>
 </div>
